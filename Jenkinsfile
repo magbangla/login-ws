@@ -16,8 +16,7 @@ pipeline {
 
     stage('Publish') {
       steps {
-        sh '''mvn package
-archive \'target/*.jar\''''
+        sh 'mvn package'
       }
     }
 
