@@ -3,7 +3,6 @@ pipeline {
   stages {
     stage('Build') {
       steps {
-        sh 'yum install -y maven'
         git(url: 'https://github.com/magbangla/login-ws.git', branch: 'master', credentialsId: 'github-user')
         sh 'echo "pipeline starting"'
         sh 'mvn clean compile'
