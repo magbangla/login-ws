@@ -3,20 +3,20 @@ pipeline {
   stages {
     stage('Build') {
       steps {
-        sh 'mvm clean compile'
         git(url: 'https://github.com/magbangla/login-ws.git', branch: 'master', credentialsId: 'github-user')
+        sh 'mvn clean compile'
       }
     }
 
     stage('Unit Test') {
       steps {
-        sh 'mvm test'
+        sh 'mvn test'
       }
     }
 
     stage('Publish') {
       steps {
-        sh '''mvm package
+        sh '''mvn package
 archive \'target/*.jar\''''
       }
     }
